@@ -1,0 +1,12 @@
+brandon.local:443 {
+  proxy / 127.0.0.1:8080 {
+    websocket
+  }
+  tls ./brandon.local.crt ./brandon.local.key
+}
+
+brandon.local:80 {
+  redir 301 {
+    / https://brandon.local
+  }
+}
